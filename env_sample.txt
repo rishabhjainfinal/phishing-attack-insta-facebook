@@ -1,0 +1,2 @@
+DBURIPASS=<your-mongodb-uri-username-password-includes-database-name>
+MESSAUTH=<your-message-auth-from-fast2sms>
