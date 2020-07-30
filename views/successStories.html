@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' href='/static/other/cash-fav.png' type='image/png' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>success stories</title>
+    <link href="./static/other/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        html {
+            height: 100vh;
+        }
+        
+        .nav {
+            font-size: 1.5em;
+            text-decoration: none;
+            color: white;
+            height: 8vh;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-evenly;
+            border: black solid 2px;
+            background-color: rgba(36, 19, 19, 0.726);
+            flex-direction: row;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 2px 0px black;
+        }
+        
+        .text {
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .special {
+            font-size: 1.2em;
+            color: #2a2014ba;
+            line-height: 1.5em;
+            text-transform: capitalize;
+        }
+        
+        .main {
+            background-color: #bdc3c7;
+            height: 77vh;
+            margin: 0.3em;
+            border: black solid 2px;
+            border-radius: 2px;
+            overflow: scroll;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            box-shadow: 1px 1px 6px black;
+        }
+        
+        i {
+            transform: scale(2)
+        }
+        
+        img {
+            width: auto;
+            max-width: 95%;
+            margin: 0.4em;
+            box-shadow: 1px 1px 14px 0px black;
+        }
+        
+        .border {
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div onclick="goBack()" class="nav" id="navbar">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> back to LAST page
+    </div>
+
+    <div class="text">
+        Special Thank to all of the users to promote us by their social media platform
+    </div>
+    <div class="text special">
+        scroll dowm for more images
+    </div>
+
+    <div class="main" id="main">
+        <!-- <img src="" alt=""> -->
+        <!-- set images of random sizes to make more realistck -->
+
+    </div>
+
+
+</body>
+<script>
+    function goBack() {
+        window.history.back();
+    };
+
+    var cointainer = document.getElementById('main')
+    var directory = '/static/images'
+    fetch('/api/successStories')
+        .then(res => res.json())
+        .then(async result => {
+            let data = result.url
+            await data.forEach(element => {
+                console.log(element)
+                let imgTag = document.createElement('img')
+                imgTag.setAttribute('src', `${directory +'/'+ element}`)
+                imgTag.setAttribute('loading', 'lazy')
+                imgTag.setAttribute('class', 'image border')
+                    //imgTag.setAttribute('onload', 'onloaded()')
+                cointainer.appendChild(imgTag)
+            })
+
+        })
+        .catch(eror => console.log(error))
+</script>
+
+</html>
+
+</html>

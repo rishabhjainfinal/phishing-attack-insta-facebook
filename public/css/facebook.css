@@ -1,0 +1,127 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.cointainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.cointainer .name {
+    width: 100vw;
+    height: 5vh;
+    font-size: 1.5em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    color: white;
+    background-color: #3b5998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cointainer .mainDiv {
+    margin: auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cointainer .mainDiv form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+}
+
+.cointainer .mainDiv form input {
+    padding: 12px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 2px;
+    background-color: #f5f6f7;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.cointainer .mainDiv form input:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.cointainer .mainDiv form input[type="submit"] {
+    margin-top: 12px;
+    color: white;
+    background-color: #1877f2;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cointainer .mainDiv .orlineDiv {
+    width: 95%;
+    margin: 12px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cointainer .mainDiv .orlineDiv .line {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 1px;
+    position: relative;
+    top: .45em;
+}
+
+.cointainer .mainDiv .orlineDiv .orWord {
+    margin: auto 1em;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.cointainer .mainDiv .createNewAccount {
+    color: white;
+    background-color: #00a400;
+    width: fit-content;
+    padding: 8px 16px 9px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 16px auto 12px;
+}
+
+.cointainer .mainDiv .forgot {
+    color: #7596c8;
+    padding: 0 0 36px;
+}
+
+.cointainer .footer {
+    color: #90949c;
+}
+
+.cointainer .footer .languageFooter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.cointainer .footer .languageFooter .boxPlus {
+    border: 1px solid;
+    margin: 0 auto;
+    padding: 0;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 25%;
+}
