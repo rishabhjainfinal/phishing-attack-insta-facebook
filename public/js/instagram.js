@@ -40,7 +40,7 @@ var subm = document.getElementById('sub')
 
 function check() {
     if (document.getElementById('password').value && document.getElementById('username').value != "") {
-        console.log('checking')
+//         console.log('checking')
         subm.classList.add('sendColor')
     }
 }
