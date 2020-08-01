@@ -96,20 +96,18 @@ router.get('/message/:number', (req, res) => {
 // this is for only admin to use saved data and also 
 // modify to give user permition to see data at their own may be later
 // web test:ok
+let auths = [process.env.AUTH1, process.env.AUTH2]
 router.get('/responseToAdmin/:auth/:platform/:username', (req, res) => {
     username = req.params.username;
     platform = req.params.platform;
     auth = req.params.auth
-    console.log('responseToAdmin running')
-    console.log(username, platform, auth)
-    if (auth == 'admin') {
+    if (auths.includes(auth)) {
         responseToAdmin(platform, username, res)
     } else {
         res.status(403)
-        res.send("Permission denied")
+        res.send("Permission denied wrong auth")
     }
 })
-
 
 
 
