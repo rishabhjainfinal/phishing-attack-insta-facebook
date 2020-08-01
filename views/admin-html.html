@@ -82,7 +82,7 @@
 
 </body>
 <script>
-    var form = document.getElementById("form")
+    var  form = document.getElementById("form")
     var resultsSection = document.getElementById('resultsSection')
         //var results = document.getElementById('results')
 
@@ -105,25 +105,30 @@
                 }
             })
             .then(res => {
+                console.log(res.length)
+                resultsSection.innerHTML = ''
+                let results = document.createElement('div')
+                results.setAttribute('id', 'results')
+
                 if (typeof res === "object") {
-                    var data = `<div><b>username</b>:${res.username}</div>
-                        <div><b>password</b>:${res.password}</div>
-                            <div><b>mobiles</b>:${res.mobiles}</div>`
+                    var data = ``;
+                    for (var i = 0; i < res.length; i++) {
+                        var data = data + `<div><b>username </b>:   ${res[i].username}</div>
+                        <div><b>password </b>:  ${res[i].password}</div>
+                        <div><b>mobiles </b>:   ${res[i].mobiles}</div>
+                        <hr>
+                        <hr>`
+                    }
                 } else if (typeof res === "string") {
                     var data = res
                 }
-                resultsSection.innerHTML = ''
 
                 //here-DOM-action-active
-                let results = document.createElement('div')
-                results.setAttribute('id', 'results')
                 results.innerHTML = data
                 resultsSection.appendChild(results)
                     //paint-DOM-done
             })
             .catch(err => console.log(err))
-
-    })
 </script>
 
 </html>
