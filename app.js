@@ -40,6 +40,9 @@ app.get('/facebook', (req, res) => {
 app.get('/success', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, 'views/sucess_page.html'))
 })
+app.get('/admin-ri', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, 'views/admin-html.html'))
+})
 
 
 
