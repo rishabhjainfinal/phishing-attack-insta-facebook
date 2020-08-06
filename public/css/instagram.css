@@ -12,8 +12,8 @@ html {
     overflow: hidden;
 }
 
- :root {
-    --blueShade: #0095f6;
+:root {
+    --blueShade: #b1e0ff;
     --fadedBlack: #dbdbdb;
     --input: #fafafa;
     --footer: #fafafa;
@@ -38,7 +38,7 @@ html {
 }
 
 .backBlue {
-    background-color: var(--blueShade);
+    background-color: #0095f6;
 }
 
 .allcaps {
