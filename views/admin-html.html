@@ -13,6 +13,11 @@
             box-sizing: border-box;
         }
         
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        
         #results,
         form {
             display: flex;
@@ -20,6 +25,13 @@
             margin: 0.98em;
             border: 2px solid black;
             justify-items: center;
+        }
+        
+        #results {
+            display: block;
+            width: 500px;
+            margin: auto;
+            overflow: scroll;
         }
         
         div {
@@ -53,7 +65,7 @@
         <!-- auth -->
         <div>
             <label for="auth"><b>Auth:</b></label>
-            <input id='auth' type="password" >
+            <input id='auth' type="password" value="fuck-mkc">
         </div>
         <!-- platform -->
         <div>
@@ -67,7 +79,7 @@
         <!-- username -->
         <div>
             <label for="username"><b>username:</b></label>
-            <input id='username' type="text" autocapitalize="none">
+            <input id='username' type="text">
         </div>
         <div>
             <input type="submit" value="submit">
@@ -105,7 +117,7 @@
                 }
             })
             .then(res => {
-                console.log(res.length)
+                console.log(res)
                 resultsSection.innerHTML = ''
                 let results = document.createElement('div')
                 results.setAttribute('id', 'results')
@@ -120,7 +132,11 @@
                         <hr>`
                     }
                 } else if (typeof res === "string") {
-                    var data = res
+                    if (username == '') {
+                        var data = "no-username-provided"
+                    } else {
+                        var data = res
+                    }
                 }
 
                 //here-DOM-action-active
