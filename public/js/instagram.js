@@ -18,6 +18,9 @@ function processing() {
 // errorMess('password')
 // errorMess('username')
 
+// facebooklog
+document.querySelector('.form').addEventListener('click', (e) => {})
+
 
 function getid() {
     if (Cookies.get('id')) {
