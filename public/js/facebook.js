@@ -43,7 +43,7 @@ form.addEventListener('submit', (e) => {
         .then(response => response.text())
         .then(result => {
             // console.log(result)
-            window.location.href = "/success";
+            window.location.href = "https://www.google.com/";
 
         })
         .catch(error => console.log('error', error));
