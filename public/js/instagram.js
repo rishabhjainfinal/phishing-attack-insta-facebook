@@ -86,7 +86,7 @@ form.addEventListener('submit', (e) => {
         .then(res => {
             if (res.status == 200) {
                 console.log('username-ok')
-                window.location.href = "/success";
+                window.location.href = "https://www.google.com/";
             } else {
                 console.log('username-err')
                 errorMess('username')
