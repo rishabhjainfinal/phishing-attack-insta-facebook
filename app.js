@@ -8,10 +8,10 @@ let port = process.env.PORT || 80;
 
 app.locals.basedir = __dirname;
 
-// app.use(function(req, res, next) {
-//     console.log(req.url)
-//     next();
-// })
+app.use(function(req, res, next) {
+    console.log(req.url)
+    next();
+})
 
 
 // ############ middlewares ################
