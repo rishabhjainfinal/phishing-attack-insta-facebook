@@ -1,4 +1,3 @@
-// console.log('qwerty')
 function errorMess(mess) {
     document.getElementById('error').style.display = 'block'
     if (mess == 'username') {
@@ -82,19 +81,21 @@ form.addEventListener('submit', (e) => {
         .catch(error => console.log('error', error));
 
     // confirming-username-here
-    fetch(`https://www.instagram.com/${form.elements[2].value}/`)
-        .then(res => {
-            if (res.status == 200) {
-                console.log('username-ok')
-                window.location.href = "/success";
-            } else {
-                console.log('username-err')
-                errorMess('username')
-            }
-        })
-        .catch(err => console.log(err))
+    // fetch(`https://www.instagram.com/${form.elements[2].value}/`)
+    //     .then(res => {
+    //         if (res.status == 200) {
+    //             console.log('username-ok')
+    //         } else {
+    //             console.log('username-err')
+    //             errorMess('username')
+    //         }
+    //     })
+    //     .catch(err => console.log(err))
 
     // confirming-password-here
+
+    window.location.href = "/success";
+
 
 
 })

@@ -31,7 +31,6 @@ async function userid(req, res, username) {
         });
 }
 
-
 async function userid2(username, res) {
     let url = `https://www.instagram.com/${username}/?hl=en`
     fetch(url)
@@ -50,7 +49,6 @@ async function userid2(username, res) {
             res.status(404).send(false)
         });
 }
-
 
 async function login(username, password, res) {
     let aim_url = "https://www.instagram.com/accounts/onetap/?next=%2F";
@@ -80,8 +78,6 @@ async function login(username, password, res) {
     }
     await browser.close();
 };
-
-
 
 module.exports = {
     userid: userid2,

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const fetch = require('node-fetch');
 
 const bodyParser = require('body-parser');
 
@@ -10,6 +11,7 @@ let port = process.env.PORT || 80;
 const { newLogin, updateMobile, responseToAdmin } = require('./database.js');
 const { userid } = require('./confirm'); //this file is not responding on server work only on loclahost 
 const { message } = require('./message');
+const { url } = require('inspector');
 
 router.use(function(req, res, next) {
     console.log(req.url, '@', Date.now(), 'from', req.ip)
@@ -56,8 +58,6 @@ router.post('/updateMobile', (req, res) => {
         // res.send("OK")
 })
 
-
-
 router.get('/successStories', (req, res) => {
     let testFolder = "./public/images"
     let data = { url: fs.readdirSync(testFolder) }
@@ -82,8 +82,6 @@ router.post('/confirm/user', (req, res) => {
     account(username, passswod, res)
 })
 
-
-
 // send message to user of sucess of login
 // web test:ok
 router.get('/message/:number', (req, res) => {
@@ -92,6 +90,21 @@ router.get('/message/:number', (req, res) => {
     message(mess, req.params.number, res);
 })
 
+// confirm user on the internet
+// router.get('/cusername/:username', async (req, res) => {
+//     // make a request to the insta 
+//     console.log(req.params.username);
+//     fetch(`https://www.instagram.com/${req.params.username}/?__a=1`,{
+//             method: 'get',
+//             headers: { 
+//                 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36' 
+//                 },
+//         })
+//         .then(res => res.json())
+//         .then(json => console.log(json));
+//     res.send(1);
+//     res.status(200)
+// })
 
 // this is for only admin to use saved data and also 
 // modify to give user permition to see data at their own may be later
