@@ -19,7 +19,7 @@ app.locals.basedir = __dirname;
 app.set('views', path.join(__dirname, 'views'))
 app.use('/static', express.static(__dirname + '/public'));
 app.use('/api', api)
-app.use(helmet({ contentSecurityPolicy: undefined }));
+app.use(helmet({ contentSecurityPolicy: false }));
 
 // #########################################
 
