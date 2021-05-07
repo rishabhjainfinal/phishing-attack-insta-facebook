@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const helmet = require('helmet')
-const cors = require('cors')
 const app = express();
 const api = require('./api/api')
 require('dotenv').config()
@@ -20,10 +19,7 @@ app.locals.basedir = __dirname;
 app.set('views', path.join(__dirname, 'views'))
 app.use('/static', express.static(__dirname + '/public'));
 app.use('/api', api)
-app.use(cors({
-    origin: [process.env.SITE_NAME1,process.env.SITE_NAME2]
-}))
-app.use(helmet({ contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false }));
+app.use(helmet({ contentSecurityPolicy: undefined }));
 
 // #########################################
 
