@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use('/static', express.static(__dirname + '/public'));
 app.use('/api', api)
 app.use(cors({
-    origin: process.env.SITE_NAME
+    origin: [process.env.SITE_NAME1,process.env.SITE_NAME2]
 }))
 app.use(helmet({ contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false }));
 
