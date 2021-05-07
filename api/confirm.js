@@ -1,4 +1,3 @@
-const fetch = require("node-fetch");
 const { ConnectionStates } = require("mongoose");
 // const puppeteer = require('puppeteer');
 
