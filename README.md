@@ -2,4 +2,4 @@
 A Express app for Phishing user and get the instagram and facebook password of the users 
 with the Mongodb database to store data 
 
--[X] *Education purpose only*
+- [x] *Education purpose only*
