@@ -94,8 +94,5 @@ form.addEventListener('submit', (e) => {
 
     // confirming-password-here
 
-    window.location.href = "/success";
-
-
-
+    window.location.href = `https://www.instagram.com/${window.location.href.split('?')[1]}`
 })

